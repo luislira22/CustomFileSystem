@@ -13,6 +13,18 @@ public class File extends Entry {
         return size;
     }
 
+    protected File copy(String name, Directory parent) {
+        File copy = new File(name, parent, this.size);
+        copy.setContent(this.content);
+        return copy;
+    }
+
+    protected File move(String name, Directory parent) {
+        File move = this.copy(name, parent);
+        this.delete();
+        return move;
+    }
+
     public String getContent() {
         return content;
     }
@@ -20,4 +32,6 @@ public class File extends Entry {
     public void setContent(String content) {
         this.content = content;
     }
+
+
 }

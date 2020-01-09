@@ -55,10 +55,9 @@ public class Directory extends Entry {
     }
 
     protected Directory move(String name, Directory parent) {
-        Directory moved = new Directory(name, parent);
-        moved.setContents(this.contents);
+        Directory move = this.copy(name, parent);
         this.delete();
-        return moved;
+        return move;
     }
 
 }

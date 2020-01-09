@@ -51,4 +51,8 @@ public abstract class Entry {
     public Permissions getPermissions() {
         return permissions;
     }
+
+    protected abstract Entry copy(String name, Directory parent);
+
+    protected abstract Entry move(String name, Directory parent);
 }
